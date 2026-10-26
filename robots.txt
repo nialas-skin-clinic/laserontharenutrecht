@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /ads/
+Allow: /
+Sitemap: https://laserontharenutrecht.nl/sitemap.xml
