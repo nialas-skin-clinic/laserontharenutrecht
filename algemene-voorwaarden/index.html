@@ -35,4 +35,44 @@
 <h3>11. Overig</h3>
 <p>Op deze voorwaarden is Nederlands recht van toepassing. Ik mag ze aanpassen; voor jouw afspraak geldt de versie die gold toen je boekte.</p>
 <p class="small">Nialas Skin Clinic · Hondsrug 605, 3524 BZ Utrecht · <a href="mailto:info@nialas.nl">info@nialas.nl</a> · 06 83619146</p>
-</main></body></html>
+</main><!-- tracking: cookiemelding + Google Analytics + Meta-pixel -->
+<div id="ck" style="display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;max-width:520px;margin:0 auto;background:#24123F;color:#fff;border-radius:12px;padding:16px;font:15px/1.5 Inter,system-ui,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.25)">
+<p style="margin:0 0 12px">Ik gebruik cookies om te meten hoe bezoekers mijn site vinden en om mijn advertenties te verbeteren. Vind je dat goed?</p>
+<button id="ck-y" style="background:#F4E4DC;color:#24123F;border:0;border-radius:8px;padding:10px 16px;font-weight:600;cursor:pointer;margin-right:8px">Akkoord</button>
+<button id="ck-n" style="background:transparent;color:#fff;border:1px solid #fff;border-radius:8px;padding:10px 16px;cursor:pointer">Nee, liever niet</button>
+</div>
+<script>
+(function(){
+  var GA='G-F20LCYQPGJ', PX='684701093311730', KEY='nsc_cookies';
+  function get(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+  function set(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+  // bron (utm) doorgeven aan de GHL-boekingslinks
+  try{
+    var q=new URLSearchParams(location.search), keep=new URLSearchParams();
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(k){var v=q.get(k);if(v){keep.set(k,v);try{sessionStorage.setItem(k,v)}catch(e){}}else{try{var s=sessionStorage.getItem(k);if(s)keep.set(k,s)}catch(e){}}});
+    var qs=keep.toString();
+    if(qs){document.querySelectorAll('a[href*="leadconnectorhq.com/widget/bookings"]').forEach(function(a){a.href+=(a.href.indexOf('?')>-1?'&':'?')+qs;});}
+  }catch(e){}
+  function load(){
+    var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+GA;document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',GA);
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init',PX);fbq('track','PageView');
+    document.addEventListener('click',function(ev){
+      var a=ev.target.closest&&ev.target.closest('a');if(!a)return;var h=a.href||'';
+      var type=h.indexOf('leadconnectorhq.com/widget/bookings')>-1?'gratis_intake':(h.indexOf('salonized.com')>-1?'intake_actiebehandeling':(h.indexOf('wa.me')>-1||h.indexOf('whatsapp')>-1?'whatsapp':null));
+      if(!type)return;
+      try{gtag('event','boeking_klik',{type:type});}catch(e){}
+      try{fbq('track',type==='whatsapp'?'Contact':'Lead',{content_name:type});}catch(e){}
+    },true);
+  }
+  var c=get();
+  if(c==='yes'){load();}
+  else if(c!=='no'){
+    var b=document.getElementById('ck');b.style.display='block';
+    document.getElementById('ck-y').onclick=function(){set('yes');b.style.display='none';load();};
+    document.getElementById('ck-n').onclick=function(){set('no');b.style.display='none';};
+  }
+})();
+</script>
+</body></html>
