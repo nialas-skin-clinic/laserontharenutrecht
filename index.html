@@ -536,17 +536,11 @@ Actie t/m 30 november · ik neem maar 10 nieuwe klanten aan · vol is vol
 </div>
 <div style="color: #5A4A70; font-size: 15px">Of vul het formulier in, dan bel ik jou terug.</div>
 </div>
-<form id="terugbel" style="flex: 1 1 360px; min-width: 0; background: #FFFFFF; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 12px 40px rgba(36,18,63,0.1)">
-<div style="display: flex; flex-direction: column; gap: 6px">
-<label for="naam" style="font-weight: 600">Naam</label>
-<input id="naam" name="naam" type="text" required autocomplete="given-name" placeholder="Je voornaam" style="font: inherit; padding: 14px 16px; border: 1px solid #B9AACB; border-radius: 12px; min-height: 48px; box-sizing: border-box">
+<div id="terugbel" style="flex: 1 1 360px; min-width: 0; background: #FFFFFF; border-radius: 24px; padding: 16px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 12px 40px rgba(36,18,63,0.1)">
+<iframe src="https://api.leadconnectorhq.com/widget/form/hvJwn291blqcpBmknUSK" style="width:100%;height:100%;min-height:300px;border:none;border-radius:8px" id="inline-hvJwn291blqcpBmknUSK" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Terugbelverzoek landingspagina laser" data-height="300" data-layout-iframe-id="inline-hvJwn291blqcpBmknUSK" data-form-id="hvJwn291blqcpBmknUSK" title="Terugbelverzoek landingspagina laser"></iframe>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+<p style="margin: 0; font-size: 13px; color: #6B5A80; text-align: center">Ik gebruik je gegevens alleen om je terug te bellen. <a href="/privacy/" style="color: inherit">Privacy</a></p>
 </div>
-<div style="display: flex; flex-direction: column; gap: 6px">
-<label for="tel" style="font-weight: 600">Telefoonnummer</label>
-<input id="tel" name="tel" type="tel" required autocomplete="tel" placeholder="06 ..." style="font: inherit; padding: 14px 16px; border: 1px solid #B9AACB; border-radius: 12px; min-height: 48px; box-sizing: border-box">
-</div>
-<button type="submit" style="font: inherit; font-weight: 700; font-size: 17px; background: #2E1A5E; color: #FFFFFF; border: 0; border-radius: 999px; padding: 16px; min-height: 52px; cursor: pointer">Bel me terug</button>
-</form>
 </div>
 </section>
 
@@ -575,13 +569,7 @@ Actie t/m 30 november · ik neem maar 10 nieuwe klanten aan · vol is vol
 
 </div>
 
-<script>
-document.getElementById('terugbel').addEventListener('submit',function(e){e.preventDefault();
-var n=document.getElementById('naam').value.trim(),t=document.getElementById('tel').value.trim();
-var msg='Hoi Niala, ik ben '+n+'. Wil je me terugbellen op '+t+'? Het gaat over de laseractie.';
-if(window.fbq)fbq('track','Contact');
-window.location.href='https://wa.me/31683619146?text='+encodeURIComponent(msg);});
-</script>
+
 <!-- tracking: cookiemelding + Google Analytics + Meta-pixel -->
 <div id="ck" style="display:none;position:fixed;left:12px;right:12px;bottom:96px;z-index:9999;max-width:520px;margin:0 auto;background:#24123F;color:#fff;border-radius:12px;padding:16px;font:15px/1.5 Inter,system-ui,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.25)">
 <p style="margin:0 0 12px">Ik gebruik cookies om te meten hoe bezoekers mijn site vinden en om mijn advertenties te verbeteren. Vind je dat goed?</p>
